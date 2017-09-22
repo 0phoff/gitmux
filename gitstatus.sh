@@ -77,28 +77,31 @@ else
     for remote_field in "${remote_fields[@]}"; do
       if [[ "$remote_field" == *ahead* ]]; then
         num_ahead=${remote_field:6}
-        ahead="_AHEAD_${num_ahead}"
+        ahead="${num_ahead}"
       fi
       if [[ "$remote_field" == *behind* ]]; then
         num_behind=${remote_field:7}
-        behind="_BEHIND_${num_behind# }"
+        behind="${num_behind# }"
       fi
     done
-    remote="${behind}${ahead}"
   fi
 fi
 
-if [[ -z "$remote" ]] ; then
-  remote='.'
+if [[ -z "$ahead" ]] ; then
+    ahead=0
+fi
+if [[ -z "$behind" ]] ; then
+    behind=0
 fi
 
 if [[ -z "$upstream" ]] ; then
   upstream='^'
 fi
 
-printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" \
+printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" \
   "$branch" \
-  "$remote" \
+  "$ahead" \
+  "$behind" \
   "$upstream" \
   $num_staged \
   $num_conflicts \
