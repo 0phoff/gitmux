@@ -95,7 +95,7 @@ if [[ -z "$behind" ]] ; then
 fi
 
 if [[ -z "$upstream" ]] ; then
-  upstream='^'
+  upstream=0
 fi
 
 printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" \
