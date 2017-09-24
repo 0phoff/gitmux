@@ -27,6 +27,10 @@ In your tmux config, you can use the following variables
 If you want to update your statusbar whenever you save a file in Vim, add the following line to your vim config:
   > autocmd BufWritePost * silent! !eval $(tmux display -p "\#{GITMUX_SCRIPT}")
 
+### Neovim
+Alternative for neovim, that uses the jobcontrol feature to run the command asynchronously (and thus does not block the editor whilst running the command)
+  > autocmd BufWritePost * silent! jobstart(['bash', '-c', 'eval $(tmux display -p "\#{GITMUX_SCRIPT}")'])
+
 ### Terminal
 If you use the PROMPT_COMMAND variable in your terminal configuration, be sure to have it in this format:
   > PROMPT_COMMAND=" …your_functions_here… ;$PROMPT_COMMAND"
