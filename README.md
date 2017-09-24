@@ -10,7 +10,7 @@ Install this plugin with [tpm](https://github.com/tmux-plugins/tpm).
 ## Usage
 ### Tmux
 In your tmux config, you can use the following variables
-  - __GITMUX_SCRIPT__         : Path to the update script
+  - __GITMUX_SCRIPT__         : Path to the update script _(This is a global tmux variable, access it with tmux showenv -g)_
   - __GITMUX_REPO__           : This value is non-zero if the current pane is in a git repository
   - __GITMUX_BRANCH__         : Name of the current branch
   - __GITMUX_REMOTE__         : Name of the tracking branch (0 if none)
