@@ -24,7 +24,7 @@ function is_git_repo {
 function main {
     local current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     local dir=$(tmux display -p '#{pane_current_path}')
-    cd $dir
+    cd "$dir"
     is_git_repo
 
     if [ $? -eq 0 ]; then   # Git repo
