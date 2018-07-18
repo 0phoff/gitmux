@@ -35,6 +35,14 @@ Alternative for neovim, that uses the jobcontrol feature to run the command asyn
 If you use the PROMPT_COMMAND variable in your terminal configuration, be sure to have it in this format:
   > PROMPT_COMMAND=" …your_functions_here… ;$PROMPT_COMMAND"
 
+__NOTE:__  
+Some distributions like ubuntu, reset the $PROMPT_COMMAND upon loading a terminal, which causes this plugin to fail.  
+If the plugin does not seem to update when you enter a git repository check the files ``/etc/bash.bashrc`` and ``/etc/profile`` and all the files they source.  
+Eg. for ubuntu, you need to comment out the following line, at the end of the file ``/etc/profile.d/vte-2.91.sh``:
+```bash
+[ -n "$BASH_VERSION" ] && PROMPT_COMMAND="__vte_prompt_command"
+```
+
 ## Examples
 Here is an example of how I use this plugin to show information on my status bar.
 ```tmux
