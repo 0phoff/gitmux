@@ -58,4 +58,4 @@ function main {
     tmux refresh-client -S
 }
 
-main
+main &
